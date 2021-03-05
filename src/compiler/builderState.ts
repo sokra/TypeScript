@@ -341,7 +341,7 @@ namespace ts {
                 }
             }
             else {
-                if (prevSignature === undefined && avoidInitializingSignature) {
+                if (state.hasCalledUpdateShapeSignature.size > 50 || prevSignature === undefined && avoidInitializingSignature) {
                     if (exportedModulesMapCache) {
                         const references = state.referencedMap ? state.referencedMap.get(sourceFile.resolvedPath) : undefined;
                         exportedModulesMapCache.set(sourceFile.resolvedPath, references || false);
